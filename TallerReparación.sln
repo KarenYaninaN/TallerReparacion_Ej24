@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TallerReparaciónCRUZ", "TallerReparación\TallerReparaciónCRUZ.csproj", "{E86E1065-BDE3-4B3E-8F20-F879477C1ECF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E86E1065-BDE3-4B3E-8F20-F879477C1ECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E86E1065-BDE3-4B3E-8F20-F879477C1ECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E86E1065-BDE3-4B3E-8F20-F879477C1ECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E86E1065-BDE3-4B3E-8F20-F879477C1ECF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2612AD18-A08D-43A1-8562-82793B4DC2A5}
+	EndGlobalSection
+EndGlobal
