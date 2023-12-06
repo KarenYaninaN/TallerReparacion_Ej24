@@ -25,7 +25,12 @@ namespace TallerReparación
         private double rnd_monto;
         private double monto_cobrar;
         private string esGratuito;
-
+        //
+        private double r_recaudacion; 
+        private double r_costo_repuesto; 
+        private double r_beneficio; 
+        private double r_costo_garantia;
+        //
         private double acum_recaudacion;
         private double costo_repuestos;
         private double beneficios;
@@ -35,6 +40,7 @@ namespace TallerReparación
             double prox_lleg_cliente, int cola_reparador, string estado_reparador1, string estado_reparador2,
             string estado_reparador3, double rnd_reparacion, double tmp_reparacion, double fin_reparacion1,
             double fin_reparacion2, double fin_reparacion3, double rnd_monto, double monto_cobrar, string esGratuito,
+            double r_recaudacion, double r_costo_repuesto, double r_beneficio, double r_costo_garantia,
             double acum_recaudacion, double costo_repuestos, double beneficios, double acum_costo_garantia)
         {
             this.evento = evento;
@@ -54,6 +60,12 @@ namespace TallerReparación
             this.rnd_monto = rnd_monto;
             this.monto_cobrar = monto_cobrar;
             this.esGratuito = esGratuito;
+            //
+            this.r_recaudacion = r_recaudacion;
+            this.r_costo_repuesto = r_costo_repuesto;
+            this.r_beneficio = r_beneficio; 
+            this.r_costo_garantia = r_costo_garantia;
+            //
             this.acum_recaudacion = acum_recaudacion;
             this.costo_repuestos = costo_repuestos;
             this.beneficios = beneficios;
@@ -128,9 +140,28 @@ namespace TallerReparación
         {
             get { return esGratuito; }
         }
+        //
+        
+        public double R_recaudacion
+        {
+            get { return r_recaudacion; }
+        }
+        public double R_costo_repuesto
+        {
+            get { return r_costo_repuesto; }
+        }
         public double Acum_recaudacion
         {
             get { return acum_recaudacion; }
+        }
+        public double R_beneficio
+        {
+            get { return r_beneficio; }
+        }
+        //
+        public double R_costo_garantia
+        {
+            get { return r_costo_garantia; }
         }
         public double Costo_repuestos
         {

@@ -72,7 +72,8 @@ namespace TallerReparación
                     // El valor ingresado es un número (double o int)
                     Simulacion sim = new Simulacion(tiempo_sim, desde, hasta);
                     Vector[] vec = sim.ejecutar();
-
+                    dgvClientes.DataSource = sim.obtenerListClientes();
+                    
                    
                     //colorear columnas
                     dgvSimular.DataSource = sim.getDtVector(vec);
@@ -156,6 +157,7 @@ namespace TallerReparación
                 dgvSimular.Columns[19].DefaultCellStyle.BackColor = Color.White;
                 dgvSimular.Columns[20].DefaultCellStyle.BackColor = Color.White;
             }
+            dgvClientes.Columns.Clear();
 
         }
     }

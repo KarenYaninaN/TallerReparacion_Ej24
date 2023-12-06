@@ -46,16 +46,28 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.limpiar = new System.Windows.Forms.Button();
+            this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.label8 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Clientes = new System.Windows.Forms.TabControl();
+            this.cli = new System.Windows.Forms.TabPage();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSimular)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
+            this.Clientes.SuspendLayout();
+            this.cli.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvSimular
             // 
             this.dgvSimular.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSimular.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgvSimular.Location = new System.Drawing.Point(12, 86);
+            this.dgvSimular.Location = new System.Drawing.Point(6, 5);
             this.dgvSimular.Name = "dgvSimular";
-            this.dgvSimular.Size = new System.Drawing.Size(1334, 470);
+            this.dgvSimular.Size = new System.Drawing.Size(846, 545);
             this.dgvSimular.TabIndex = 0;
             // 
             // btnSimular
@@ -87,7 +99,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(1130, 632);
+            this.btnSalir.Location = new System.Drawing.Point(1261, 608);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 4;
@@ -129,38 +141,48 @@
             // 
             // textRecaudacion
             // 
-            this.textRecaudacion.Location = new System.Drawing.Point(175, 573);
+            this.textRecaudacion.BackColor = System.Drawing.SystemColors.Info;
+            this.textRecaudacion.Font = new System.Drawing.Font("MS Reference Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textRecaudacion.Location = new System.Drawing.Point(1117, 403);
             this.textRecaudacion.Name = "textRecaudacion";
-            this.textRecaudacion.Size = new System.Drawing.Size(100, 20);
+            this.textRecaudacion.Size = new System.Drawing.Size(187, 33);
             this.textRecaudacion.TabIndex = 9;
             // 
             // textCostoRepuesto
             // 
-            this.textCostoRepuesto.Location = new System.Drawing.Point(175, 599);
+            this.textCostoRepuesto.BackColor = System.Drawing.SystemColors.Info;
+            this.textCostoRepuesto.Font = new System.Drawing.Font("MS Reference Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textCostoRepuesto.Location = new System.Drawing.Point(1117, 445);
             this.textCostoRepuesto.Name = "textCostoRepuesto";
-            this.textCostoRepuesto.Size = new System.Drawing.Size(98, 20);
+            this.textCostoRepuesto.Size = new System.Drawing.Size(187, 33);
             this.textCostoRepuesto.TabIndex = 10;
             // 
             // textBeneficios
             // 
-            this.textBeneficios.Location = new System.Drawing.Point(173, 655);
+            this.textBeneficios.BackColor = System.Drawing.SystemColors.Info;
+            this.textBeneficios.Font = new System.Drawing.Font("MS Reference Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBeneficios.Location = new System.Drawing.Point(1117, 523);
             this.textBeneficios.Name = "textBeneficios";
-            this.textBeneficios.Size = new System.Drawing.Size(100, 20);
+            this.textBeneficios.Size = new System.Drawing.Size(187, 33);
             this.textBeneficios.TabIndex = 11;
             // 
             // textCostoGarantia
             // 
-            this.textCostoGarantia.Location = new System.Drawing.Point(173, 629);
+            this.textCostoGarantia.BackColor = System.Drawing.SystemColors.Info;
+            this.textCostoGarantia.Font = new System.Drawing.Font("MS Reference Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textCostoGarantia.Location = new System.Drawing.Point(1117, 484);
             this.textCostoGarantia.Name = "textCostoGarantia";
-            this.textCostoGarantia.Size = new System.Drawing.Size(100, 20);
+            this.textCostoGarantia.Size = new System.Drawing.Size(187, 33);
             this.textCostoGarantia.TabIndex = 12;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(96, 580);
+            this.label4.Font = new System.Drawing.Font("Franklin Gothic Medium", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Indigo;
+            this.label4.Location = new System.Drawing.Point(978, 410);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 13);
+            this.label4.Size = new System.Drawing.Size(128, 26);
             this.label4.TabIndex = 13;
             this.label4.Text = "Recaudación";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -168,9 +190,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(66, 606);
+            this.label5.Font = new System.Drawing.Font("Franklin Gothic Medium", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Indigo;
+            this.label5.Location = new System.Drawing.Point(915, 452);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(103, 13);
+            this.label5.Size = new System.Drawing.Size(191, 26);
             this.label5.TabIndex = 14;
             this.label5.Text = "Costo en Repuestos";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -178,9 +202,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(111, 658);
+            this.label6.Font = new System.Drawing.Font("Franklin Gothic Medium", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Indigo;
+            this.label6.Location = new System.Drawing.Point(1000, 530);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 13);
+            this.label6.Size = new System.Drawing.Size(106, 26);
             this.label6.TabIndex = 15;
             this.label6.Text = "Beneficios";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -188,9 +214,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(73, 632);
+            this.label7.Font = new System.Drawing.Font("Franklin Gothic Medium", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Indigo;
+            this.label7.Location = new System.Drawing.Point(935, 491);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 13);
+            this.label7.Size = new System.Drawing.Size(171, 26);
             this.label7.TabIndex = 16;
             this.label7.Text = "Costo en Garantía";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -205,11 +233,83 @@
             this.limpiar.UseVisualStyleBackColor = true;
             this.limpiar.Click += new System.EventHandler(this.limpiar_Click);
             // 
+            // dgvClientes
+            // 
+            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClientes.Location = new System.Drawing.Point(6, 5);
+            this.dgvClientes.Name = "dgvClientes";
+            this.dgvClientes.Size = new System.Drawing.Size(425, 258);
+            this.dgvClientes.TabIndex = 18;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(1254, 75);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(82, 24);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Clientes ";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(891, 376);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(445, 213);
+            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Métricas";
+            // 
+            // Clientes
+            // 
+            this.Clientes.Controls.Add(this.cli);
+            this.Clientes.Location = new System.Drawing.Point(891, 75);
+            this.Clientes.Name = "Clientes";
+            this.Clientes.SelectedIndex = 0;
+            this.Clientes.Size = new System.Drawing.Size(445, 295);
+            this.Clientes.TabIndex = 22;
+            // 
+            // cli
+            // 
+            this.cli.BackColor = System.Drawing.Color.Thistle;
+            this.cli.Controls.Add(this.dgvClientes);
+            this.cli.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cli.ForeColor = System.Drawing.Color.Black;
+            this.cli.Location = new System.Drawing.Point(4, 22);
+            this.cli.Name = "cli";
+            this.cli.Padding = new System.Windows.Forms.Padding(3);
+            this.cli.Size = new System.Drawing.Size(437, 269);
+            this.cli.TabIndex = 1;
+            this.cli.Text = "Clientes";
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Location = new System.Drawing.Point(12, 75);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(866, 582);
+            this.tabControl1.TabIndex = 23;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.Thistle;
+            this.tabPage1.Controls.Add(this.dgvSimular);
+            this.tabPage1.ForeColor = System.Drawing.Color.Black;
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(858, 556);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Simulación Reparación de Electrodomésticos";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1358, 731);
+            this.ClientSize = new System.Drawing.Size(1358, 668);
+            this.Controls.Add(this.Clientes);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.limpiar);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -227,11 +327,17 @@
             this.Controls.Add(this.txtTiempoSim);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSimular);
-            this.Controls.Add(this.dgvSimular);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Simulación";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSimular)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
+            this.Clientes.ResumeLayout(false);
+            this.cli.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,6 +363,13 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button limpiar;
+        private System.Windows.Forms.DataGridView dgvClientes;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TabControl Clientes;
+        private System.Windows.Forms.TabPage cli;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
     }
 }
 
