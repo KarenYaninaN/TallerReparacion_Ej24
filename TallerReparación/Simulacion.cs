@@ -75,7 +75,7 @@ namespace TallerReparación
         private double _monto_Desde;
         private double _monto_Hasta;
         private double _p_costo_repuesto;
-        public Simulacion(double tmp_sim, int desde_sim, int hasta_sim, int lambda, int _tiemporep_desde, int _tiemporep_hasta, double _monto_desde, double _monto_hasta)
+        public Simulacion(double tmp_sim, int desde_sim, int hasta_sim, int lambda, int _tiemporep_desde, int _tiemporep_hasta, double _monto_desde, double _monto_hasta, double _p_costo_Repuesto)
         {
             tiempo_sim = tmp_sim * 60;
             desde = desde_sim;
@@ -94,7 +94,7 @@ namespace TallerReparación
             _tiempoRep_hasta = _tiemporep_hasta;
             _monto_Desde = _monto_desde;
             _monto_Hasta = _monto_hasta;
-            _p_costo_repuesto = 25;
+            _p_costo_repuesto = _p_costo_Repuesto;
 
         }
 
@@ -287,26 +287,28 @@ namespace TallerReparación
                     esGratuito = si;
                     monto_cobrar = obtener_monto_cobrar(rnd);
                     double monto_No_cobrado = obtener_monto_cobrar(rnd);
-                    acum_costo_repuestos += monto_cobrar * 25 / 100;
-                    acum_beneficios = acum_recaudacion - acum_costo_repuestos;
-                    acum_costo_garantia += monto_cobrar;
+                    
                     r_recaudacion = 0;
-                    r_costo_repuesto = monto_cobrar * 25 / 100;
+                    r_costo_repuesto = monto_cobrar * _p_costo_repuesto / 100;
                     r_beneficio = r_recaudacion - r_costo_repuesto;
                     r_costo_garantia = monto_cobrar;
+                    acum_costo_repuestos += r_costo_repuesto;
+                    acum_beneficios = acum_recaudacion - acum_costo_repuestos;
+                    acum_costo_garantia += monto_cobrar;
                 }
                 else
                 {
                     esGratuito = no;
                     monto_cobrar = obtener_monto_cobrar(rnd);
-                    acum_recaudacion += monto_cobrar;
-                    acum_costo_repuestos += monto_cobrar * 25 / 100;
-                    acum_beneficios = acum_recaudacion - acum_costo_repuestos;
-                    acum_costo_garantia += 0;
+                    
                     r_recaudacion = monto_cobrar;
-                    r_costo_repuesto = monto_cobrar * 25 / 100;
+                    r_costo_repuesto = monto_cobrar * _p_costo_repuesto / 100;
                     r_beneficio = r_recaudacion - r_costo_repuesto;
                     r_costo_garantia = 0;
+                    acum_recaudacion += monto_cobrar;
+                    acum_costo_repuestos += r_costo_repuesto;
+                    acum_beneficios = acum_recaudacion - acum_costo_repuestos;
+                    acum_costo_garantia += 0;
                 }
             }
             else
@@ -341,26 +343,28 @@ namespace TallerReparación
                         esGratuito = si;
                         monto_cobrar = obtener_monto_cobrar(rnd);
                         double monto_No_cobrado = obtener_monto_cobrar(rnd);
-                        acum_costo_repuestos += monto_cobrar * 25 / 100;
-                        acum_beneficios = acum_recaudacion - acum_costo_repuestos;
-                        acum_costo_garantia += monto_cobrar;
+                        
                         r_recaudacion = 0;
-                        r_costo_repuesto = monto_cobrar * 25 / 100;
+                        r_costo_repuesto = monto_cobrar * _p_costo_repuesto / 100;
                         r_beneficio = r_recaudacion - r_costo_repuesto;
                         r_costo_garantia = monto_cobrar;
+                        acum_costo_repuestos += r_costo_repuesto;
+                        acum_beneficios = acum_recaudacion - acum_costo_repuestos;
+                        acum_costo_garantia += monto_cobrar;
                     }
                     else
                     {
                         esGratuito = no;
                         monto_cobrar = obtener_monto_cobrar(rnd);
-                        acum_recaudacion += monto_cobrar;
-                        acum_costo_repuestos += monto_cobrar * 25 / 100;
-                        acum_beneficios = acum_recaudacion - acum_costo_repuestos;
-                        acum_costo_garantia += 0;
+                       
                         r_recaudacion = monto_cobrar;
-                        r_costo_repuesto = monto_cobrar * 25 / 100;
+                        r_costo_repuesto = monto_cobrar * _p_costo_repuesto / 100;
                         r_beneficio = r_recaudacion - r_costo_repuesto;
                         r_costo_garantia = 0;
+                        acum_recaudacion += monto_cobrar;
+                        acum_costo_repuestos += r_costo_repuesto;
+                        acum_beneficios = acum_recaudacion - acum_costo_repuestos;
+                        acum_costo_garantia += 0;
                     }
                 }
             }
@@ -470,7 +474,7 @@ namespace TallerReparación
             dtVector.Columns.Add("Monto a Cobrar", typeof(double));
             dtVector.Columns.Add("¿Es Gratuito?", typeof(string));
             dtVector.Columns.Add("Recaudación", typeof(double));
-            dtVector.Columns.Add("Costo de Repuestos (25%)", typeof(double));
+            dtVector.Columns.Add("Costo de Repuestos (%)", typeof(double));
             dtVector.Columns.Add("Beneficio", typeof(double));
             dtVector.Columns.Add("Costo de Garantía", typeof(double));
             dtVector.Columns.Add("Acum de Recaudación", typeof(double));
@@ -547,7 +551,7 @@ namespace TallerReparación
             dr["Monto a Cobrar"] = Math.Round(v0.Monto_cobrar, 2);
             dr["¿Es Gratuito?"] = v0.EsGratuito;
             dr["Recaudación"] = Math.Round(v0.R_recaudacion, 2);
-            dr["Costo de Repuestos (25%)"] = Math.Round(v0.R_costo_repuesto, 2);
+            dr["Costo de Repuestos (%)"] = Math.Round(v0.R_costo_repuesto, 2);
             dr["Beneficio"] = Math.Round(v0.R_beneficio, 2);
             dr["Costo de Garantía"] = Math.Round(v0.R_costo_garantia, 2);
             dr["Acum de Recaudación"] = Math.Round(v0.Acum_recaudacion, 2);
@@ -573,6 +577,7 @@ namespace TallerReparación
             _lambda = 7;
             _tiempoRep_desde = 13;
             _tiempoRep_hasta = 17;
+           
         }
     }
 }

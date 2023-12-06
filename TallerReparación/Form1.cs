@@ -33,6 +33,7 @@ namespace TallerReparación
             double recaudacion;
             double _monto_desde = 100;
             double _monto_hasta = 400;
+            double _p_costo_Repuesto = 25;
 
 
 
@@ -43,6 +44,7 @@ namespace TallerReparación
                     (double.TryParse(textHasta.Text, out double hastaSim) || int.TryParse(textHasta.Text, out int hastaSimEntero) || textHasta.Text == ""))
                 {
                     double tiempo_sim = double.Parse(txtTiempoSim.Text);
+                    //Validaciones lambda
                     if (txtLambda.Text != "")
                     {
                         if (int.TryParse(txtLambda.Text, out int lambdaValue) && lambdaValue > 0)
@@ -131,8 +133,24 @@ namespace TallerReparación
                         }
 
                     }
-                    // El valor ingresado es un número (double o int)
-                    Simulacion sim = new Simulacion(tiempo_sim, desde, hasta, lambda, _tiemporep_desde, _tiemporep_hasta, _monto_desde, _monto_hasta);
+                    //Validaciones Porcentaje % Costo de Respuestos
+                    if (txt_porc_costo_rep.Text != "")
+                    {
+                        if (int.TryParse(txt_porc_costo_rep.Text, out int porcentRepValue) && porcentRepValue > 0)
+                        {
+                            _p_costo_Repuesto = porcentRepValue;
+                        }
+                        else
+                        {
+                            MessageBox.Show("El porcentaje de Costo de Repuesto debe ser un valor POSITIVO y MAYOR A CERO ");
+                            txt_porc_costo_rep.Text = "25";
+                        }
+                    }
+                    else
+                    {
+                        txtLambda.Text = "7";
+                    }
+                    Simulacion sim = new Simulacion(tiempo_sim, desde, hasta, lambda, _tiemporep_desde, _tiemporep_hasta, _monto_desde, _monto_hasta, _p_costo_Repuesto);
                     List<Vector> vec = sim.ejecutar();
                     dgvClientes.DataSource = sim.obtenerListClientes();
                     
@@ -173,6 +191,7 @@ namespace TallerReparación
                     txt_tiemporep_hasta.Enabled = false;
                     text_monto_desde.Enabled = false;
                     text_monto_hasta.Enabled = false;
+                    txt_porc_costo_rep.Enabled = false;
                 }
                 else
                 {
@@ -216,6 +235,7 @@ namespace TallerReparación
             txt_tiemporep_hasta.Clear();
             text_monto_desde.Clear();
             text_monto_hasta.Clear();
+            txt_porc_costo_rep.Clear();
 
             txtTiempoSim.Enabled = true;
             textDesde.Enabled = true;
@@ -225,6 +245,7 @@ namespace TallerReparación
             txt_tiemporep_hasta.Enabled = true;
             text_monto_desde.Enabled = true;
             text_monto_hasta.Enabled = true;
+            txt_porc_costo_rep.Enabled = true;
 
             if (dgvSimular.DataSource is DataTable dataTable) 
             {

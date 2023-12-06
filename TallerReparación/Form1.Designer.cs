@@ -47,7 +47,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.limpiar = new System.Windows.Forms.Button();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Clientes = new System.Windows.Forms.TabControl();
             this.cli = new System.Windows.Forms.TabPage();
@@ -65,12 +64,17 @@
             this.text_monto_hasta = new System.Windows.Forms.TextBox();
             this.text_monto_desde = new System.Windows.Forms.TextBox();
             this.text_monto = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txt_porc_costo_rep = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSimular)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.Clientes.SuspendLayout();
             this.cli.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvSimular
@@ -80,12 +84,12 @@
             this.dgvSimular.Location = new System.Drawing.Point(6, 5);
             this.dgvSimular.Name = "dgvSimular";
             this.dgvSimular.ReadOnly = true;
-            this.dgvSimular.Size = new System.Drawing.Size(846, 545);
+            this.dgvSimular.Size = new System.Drawing.Size(846, 510);
             this.dgvSimular.TabIndex = 0;
             // 
             // btnSimular
             // 
-            this.btnSimular.Location = new System.Drawing.Point(1120, 33);
+            this.btnSimular.Location = new System.Drawing.Point(1228, 45);
             this.btnSimular.Name = "btnSimular";
             this.btnSimular.Size = new System.Drawing.Size(98, 32);
             this.btnSimular.TabIndex = 1;
@@ -107,12 +111,12 @@
             // 
             this.txtTiempoSim.Location = new System.Drawing.Point(155, 33);
             this.txtTiempoSim.Name = "txtTiempoSim";
-            this.txtTiempoSim.Size = new System.Drawing.Size(100, 20);
+            this.txtTiempoSim.Size = new System.Drawing.Size(44, 20);
             this.txtTiempoSim.TabIndex = 3;
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(1261, 608);
+            this.btnSalir.Location = new System.Drawing.Point(1261, 600);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 4;
@@ -123,33 +127,35 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(803, 14);
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label2.Location = new System.Drawing.Point(190, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.Size = new System.Drawing.Size(32, 12);
             this.label2.TabIndex = 5;
             this.label2.Text = "Desde";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(803, 38);
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label3.Location = new System.Drawing.Point(275, 11);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.Size = new System.Drawing.Size(30, 12);
             this.label3.TabIndex = 6;
             this.label3.Text = "Hasta";
             // 
             // textDesde
             // 
-            this.textDesde.Location = new System.Drawing.Point(857, 7);
+            this.textDesde.Location = new System.Drawing.Point(231, 8);
             this.textDesde.Name = "textDesde";
-            this.textDesde.Size = new System.Drawing.Size(100, 20);
+            this.textDesde.Size = new System.Drawing.Size(37, 17);
             this.textDesde.TabIndex = 7;
             // 
             // textHasta
             // 
-            this.textHasta.Location = new System.Drawing.Point(857, 33);
+            this.textHasta.Location = new System.Drawing.Point(315, 9);
             this.textHasta.Name = "textHasta";
-            this.textHasta.Size = new System.Drawing.Size(100, 20);
+            this.textHasta.Size = new System.Drawing.Size(36, 17);
             this.textHasta.TabIndex = 8;
             // 
             // textRecaudacion
@@ -238,7 +244,7 @@
             // 
             // limpiar
             // 
-            this.limpiar.Location = new System.Drawing.Point(1133, 4);
+            this.limpiar.Location = new System.Drawing.Point(1251, 7);
             this.limpiar.Name = "limpiar";
             this.limpiar.Size = new System.Drawing.Size(75, 23);
             this.limpiar.TabIndex = 17;
@@ -254,19 +260,9 @@
             this.dgvClientes.Size = new System.Drawing.Size(425, 258);
             this.dgvClientes.TabIndex = 18;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(1254, 75);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(82, 24);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "Clientes ";
-            // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(891, 376);
+            this.groupBox1.Location = new System.Drawing.Point(891, 385);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(445, 213);
             this.groupBox1.TabIndex = 21;
@@ -276,7 +272,7 @@
             // Clientes
             // 
             this.Clientes.Controls.Add(this.cli);
-            this.Clientes.Location = new System.Drawing.Point(891, 75);
+            this.Clientes.Location = new System.Drawing.Point(891, 84);
             this.Clientes.Name = "Clientes";
             this.Clientes.SelectedIndex = 0;
             this.Clientes.Size = new System.Drawing.Size(445, 295);
@@ -298,10 +294,10 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Location = new System.Drawing.Point(12, 75);
+            this.tabControl1.Location = new System.Drawing.Point(12, 84);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(866, 582);
+            this.tabControl1.Size = new System.Drawing.Size(866, 547);
             this.tabControl1.TabIndex = 23;
             // 
             // tabPage1
@@ -312,14 +308,14 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(858, 556);
+            this.tabPage1.Size = new System.Drawing.Size(858, 521);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Simulación Reparación de Electrodomésticos";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(313, 5);
+            this.label9.Location = new System.Drawing.Point(260, 8);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(196, 13);
             this.label9.TabIndex = 1;
@@ -327,16 +323,16 @@
             // 
             // txtLambda
             // 
-            this.txtLambda.Location = new System.Drawing.Point(522, 4);
+            this.txtLambda.Location = new System.Drawing.Point(453, 6);
             this.txtLambda.Name = "txtLambda";
-            this.txtLambda.Size = new System.Drawing.Size(100, 20);
+            this.txtLambda.Size = new System.Drawing.Size(37, 20);
             this.txtLambda.TabIndex = 24;
             this.txtLambda.Text = "7";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(313, 34);
+            this.label10.Location = new System.Drawing.Point(565, 11);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(193, 13);
             this.label10.TabIndex = 25;
@@ -345,7 +341,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(521, 34);
+            this.label11.Location = new System.Drawing.Point(754, 10);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(38, 13);
             this.label11.TabIndex = 26;
@@ -353,7 +349,7 @@
             // 
             // txt_tiemporep_desde
             // 
-            this.txt_tiemporep_desde.Location = new System.Drawing.Point(565, 31);
+            this.txt_tiemporep_desde.Location = new System.Drawing.Point(798, 7);
             this.txt_tiemporep_desde.Name = "txt_tiemporep_desde";
             this.txt_tiemporep_desde.Size = new System.Drawing.Size(38, 20);
             this.txt_tiemporep_desde.TabIndex = 27;
@@ -361,7 +357,7 @@
             // 
             // txt_tiemporep_hasta
             // 
-            this.txt_tiemporep_hasta.Location = new System.Drawing.Point(650, 30);
+            this.txt_tiemporep_hasta.Location = new System.Drawing.Point(883, 6);
             this.txt_tiemporep_hasta.Name = "txt_tiemporep_hasta";
             this.txt_tiemporep_hasta.Size = new System.Drawing.Size(36, 20);
             this.txt_tiemporep_hasta.TabIndex = 28;
@@ -370,7 +366,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(609, 33);
+            this.label12.Location = new System.Drawing.Point(842, 9);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(35, 13);
             this.label12.TabIndex = 29;
@@ -379,7 +375,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(313, 59);
+            this.label13.Location = new System.Drawing.Point(610, 36);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(148, 13);
             this.label13.TabIndex = 30;
@@ -388,7 +384,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(609, 59);
+            this.label14.Location = new System.Drawing.Point(842, 35);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(35, 13);
             this.label14.TabIndex = 34;
@@ -396,7 +392,7 @@
             // 
             // text_monto_hasta
             // 
-            this.text_monto_hasta.Location = new System.Drawing.Point(650, 56);
+            this.text_monto_hasta.Location = new System.Drawing.Point(883, 32);
             this.text_monto_hasta.Name = "text_monto_hasta";
             this.text_monto_hasta.Size = new System.Drawing.Size(36, 20);
             this.text_monto_hasta.TabIndex = 33;
@@ -404,7 +400,7 @@
             // 
             // text_monto_desde
             // 
-            this.text_monto_desde.Location = new System.Drawing.Point(565, 57);
+            this.text_monto_desde.Location = new System.Drawing.Point(798, 33);
             this.text_monto_desde.Name = "text_monto_desde";
             this.text_monto_desde.Size = new System.Drawing.Size(38, 20);
             this.text_monto_desde.TabIndex = 32;
@@ -413,17 +409,62 @@
             // text_monto
             // 
             this.text_monto.AutoSize = true;
-            this.text_monto.Location = new System.Drawing.Point(521, 60);
+            this.text_monto.Location = new System.Drawing.Point(754, 36);
             this.text_monto.Name = "text_monto";
             this.text_monto.Size = new System.Drawing.Size(38, 13);
             this.text_monto.TabIndex = 31;
             this.text_monto.Text = "Desde";
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label15.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label15.Location = new System.Drawing.Point(46, 10);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(145, 13);
+            this.label15.TabIndex = 35;
+            this.label15.Text = "Rango de Eventos a mostrar:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(264, 32);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(192, 13);
+            this.label16.TabIndex = 36;
+            this.label16.Text = "Porcentaje de Costo de Repuestos (%):";
+            // 
+            // txt_porc_costo_rep
+            // 
+            this.txt_porc_costo_rep.Location = new System.Drawing.Point(453, 28);
+            this.txt_porc_costo_rep.Name = "txt_porc_costo_rep";
+            this.txt_porc_costo_rep.Size = new System.Drawing.Size(37, 20);
+            this.txt_porc_costo_rep.TabIndex = 1;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.textHasta);
+            this.groupBox2.Controls.Add(this.textDesde);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.groupBox2.Location = new System.Drawing.Point(352, 52);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(372, 33);
+            this.groupBox2.TabIndex = 37;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Opcional";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1358, 668);
+            this.ClientSize = new System.Drawing.Size(1358, 630);
+            this.Controls.Add(this.txt_porc_costo_rep);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.text_monto_hasta);
             this.Controls.Add(this.text_monto_desde);
@@ -437,7 +478,6 @@
             this.Controls.Add(this.txtLambda);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.Clientes);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.limpiar);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -447,17 +487,15 @@
             this.Controls.Add(this.textBeneficios);
             this.Controls.Add(this.textCostoRepuesto);
             this.Controls.Add(this.textRecaudacion);
-            this.Controls.Add(this.textHasta);
-            this.Controls.Add(this.textDesde);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.txtTiempoSim);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSimular);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.groupBox2);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Simulación";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSimular)).EndInit();
@@ -466,6 +504,8 @@
             this.cli.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -492,7 +532,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button limpiar;
         private System.Windows.Forms.DataGridView dgvClientes;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TabControl Clientes;
         private System.Windows.Forms.TabPage cli;
@@ -510,6 +549,10 @@
         private System.Windows.Forms.TextBox text_monto_hasta;
         private System.Windows.Forms.TextBox text_monto_desde;
         private System.Windows.Forms.Label text_monto;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txt_porc_costo_rep;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
 
