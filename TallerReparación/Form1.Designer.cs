@@ -169,7 +169,7 @@
             // 
             // textCostoRepuesto
             // 
-            this.textCostoRepuesto.BackColor = System.Drawing.SystemColors.Info;
+            this.textCostoRepuesto.BackColor = System.Drawing.SystemColors.Window;
             this.textCostoRepuesto.Font = new System.Drawing.Font("MS Reference Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textCostoRepuesto.Location = new System.Drawing.Point(1117, 445);
             this.textCostoRepuesto.Name = "textCostoRepuesto";
@@ -441,6 +441,7 @@
             this.txt_porc_costo_rep.Name = "txt_porc_costo_rep";
             this.txt_porc_costo_rep.Size = new System.Drawing.Size(37, 20);
             this.txt_porc_costo_rep.TabIndex = 1;
+            this.txt_porc_costo_rep.Text = "25";
             // 
             // groupBox2
             // 

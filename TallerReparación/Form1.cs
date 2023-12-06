@@ -148,7 +148,7 @@ namespace TallerReparación
                     }
                     else
                     {
-                        txtLambda.Text = "7";
+                        txt_porc_costo_rep.Text = "25";
                     }
                     Simulacion sim = new Simulacion(tiempo_sim, desde, hasta, lambda, _tiemporep_desde, _tiemporep_hasta, _monto_desde, _monto_hasta, _p_costo_Repuesto);
                     List<Vector> vec = sim.ejecutar();
