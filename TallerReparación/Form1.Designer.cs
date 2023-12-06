@@ -53,6 +53,18 @@
             this.cli = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtLambda = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txt_tiemporep_desde = new System.Windows.Forms.TextBox();
+            this.txt_tiemporep_hasta = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.text_monto_hasta = new System.Windows.Forms.TextBox();
+            this.text_monto_desde = new System.Windows.Forms.TextBox();
+            this.text_monto = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSimular)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.Clientes.SuspendLayout();
@@ -67,6 +79,7 @@
             this.dgvSimular.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvSimular.Location = new System.Drawing.Point(6, 5);
             this.dgvSimular.Name = "dgvSimular";
+            this.dgvSimular.ReadOnly = true;
             this.dgvSimular.Size = new System.Drawing.Size(846, 545);
             this.dgvSimular.TabIndex = 0;
             // 
@@ -83,7 +96,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(180, 40);
+            this.label1.Location = new System.Drawing.Point(18, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(131, 13);
             this.label1.TabIndex = 2;
@@ -92,7 +105,7 @@
             // 
             // txtTiempoSim
             // 
-            this.txtTiempoSim.Location = new System.Drawing.Point(317, 37);
+            this.txtTiempoSim.Location = new System.Drawing.Point(155, 33);
             this.txtTiempoSim.Name = "txtTiempoSim";
             this.txtTiempoSim.Size = new System.Drawing.Size(100, 20);
             this.txtTiempoSim.TabIndex = 3;
@@ -110,7 +123,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(534, 40);
+            this.label2.Location = new System.Drawing.Point(803, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 5;
@@ -119,7 +132,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(718, 40);
+            this.label3.Location = new System.Drawing.Point(803, 38);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 6;
@@ -127,14 +140,14 @@
             // 
             // textDesde
             // 
-            this.textDesde.Location = new System.Drawing.Point(578, 37);
+            this.textDesde.Location = new System.Drawing.Point(857, 7);
             this.textDesde.Name = "textDesde";
             this.textDesde.Size = new System.Drawing.Size(100, 20);
             this.textDesde.TabIndex = 7;
             // 
             // textHasta
             // 
-            this.textHasta.Location = new System.Drawing.Point(759, 37);
+            this.textHasta.Location = new System.Drawing.Point(857, 33);
             this.textHasta.Name = "textHasta";
             this.textHasta.Size = new System.Drawing.Size(100, 20);
             this.textHasta.TabIndex = 8;
@@ -303,11 +316,126 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Simulación Reparación de Electrodomésticos";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(313, 5);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(196, 13);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Número de Clientes que llegan por hora:";
+            // 
+            // txtLambda
+            // 
+            this.txtLambda.Location = new System.Drawing.Point(522, 4);
+            this.txtLambda.Name = "txtLambda";
+            this.txtLambda.Size = new System.Drawing.Size(100, 20);
+            this.txtLambda.TabIndex = 24;
+            this.txtLambda.Text = "7";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(313, 34);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(193, 13);
+            this.label10.TabIndex = 25;
+            this.label10.Text = "Rango de Tiempo de Reparación (min):";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(521, 34);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(38, 13);
+            this.label11.TabIndex = 26;
+            this.label11.Text = "Desde";
+            // 
+            // txt_tiemporep_desde
+            // 
+            this.txt_tiemporep_desde.Location = new System.Drawing.Point(565, 31);
+            this.txt_tiemporep_desde.Name = "txt_tiemporep_desde";
+            this.txt_tiemporep_desde.Size = new System.Drawing.Size(38, 20);
+            this.txt_tiemporep_desde.TabIndex = 27;
+            this.txt_tiemporep_desde.Text = "13";
+            // 
+            // txt_tiemporep_hasta
+            // 
+            this.txt_tiemporep_hasta.Location = new System.Drawing.Point(650, 30);
+            this.txt_tiemporep_hasta.Name = "txt_tiemporep_hasta";
+            this.txt_tiemporep_hasta.Size = new System.Drawing.Size(36, 20);
+            this.txt_tiemporep_hasta.TabIndex = 28;
+            this.txt_tiemporep_hasta.Text = "17";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(609, 33);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(35, 13);
+            this.label12.TabIndex = 29;
+            this.label12.Text = "Hasta";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(313, 59);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(148, 13);
+            this.label13.TabIndex = 30;
+            this.label13.Text = "Rango de Monto a Cobrar ($):";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(609, 59);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(35, 13);
+            this.label14.TabIndex = 34;
+            this.label14.Text = "Hasta";
+            // 
+            // text_monto_hasta
+            // 
+            this.text_monto_hasta.Location = new System.Drawing.Point(650, 56);
+            this.text_monto_hasta.Name = "text_monto_hasta";
+            this.text_monto_hasta.Size = new System.Drawing.Size(36, 20);
+            this.text_monto_hasta.TabIndex = 33;
+            this.text_monto_hasta.Text = "400";
+            // 
+            // text_monto_desde
+            // 
+            this.text_monto_desde.Location = new System.Drawing.Point(565, 57);
+            this.text_monto_desde.Name = "text_monto_desde";
+            this.text_monto_desde.Size = new System.Drawing.Size(38, 20);
+            this.text_monto_desde.TabIndex = 32;
+            this.text_monto_desde.Text = "100";
+            // 
+            // text_monto
+            // 
+            this.text_monto.AutoSize = true;
+            this.text_monto.Location = new System.Drawing.Point(521, 60);
+            this.text_monto.Name = "text_monto";
+            this.text_monto.Size = new System.Drawing.Size(38, 13);
+            this.text_monto.TabIndex = 31;
+            this.text_monto.Text = "Desde";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1358, 668);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.text_monto_hasta);
+            this.Controls.Add(this.text_monto_desde);
+            this.Controls.Add(this.text_monto);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.txt_tiemporep_hasta);
+            this.Controls.Add(this.txt_tiemporep_desde);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.txtLambda);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.Clientes);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.limpiar);
@@ -370,6 +498,18 @@
         private System.Windows.Forms.TabPage cli;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtLambda;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txt_tiemporep_desde;
+        private System.Windows.Forms.TextBox txt_tiemporep_hasta;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox text_monto_hasta;
+        private System.Windows.Forms.TextBox text_monto_desde;
+        private System.Windows.Forms.Label text_monto;
     }
 }
 

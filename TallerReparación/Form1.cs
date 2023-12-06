@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 namespace TallerReparación
@@ -15,16 +12,7 @@ namespace TallerReparación
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            dgvSimular.RowPrePaint += dgvSimular_RowPrePaint;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -36,10 +24,15 @@ namespace TallerReparación
         {
             int desde = 0;
             int hasta = 0;
+            int lambda = 7;
+            int _tiemporep_hasta = 17;
+            int _tiemporep_desde = 13;
             double beneficio;
             double costoGarantia;
             double costoRepuesto;
             double recaudacion;
+            double _monto_desde = 100;
+            double _monto_hasta = 400;
 
 
 
@@ -50,6 +43,75 @@ namespace TallerReparación
                     (double.TryParse(textHasta.Text, out double hastaSim) || int.TryParse(textHasta.Text, out int hastaSimEntero) || textHasta.Text == ""))
                 {
                     double tiempo_sim = double.Parse(txtTiempoSim.Text);
+                    if (txtLambda.Text != "")
+                    {
+                        if (int.TryParse(txtLambda.Text, out int lambdaValue) && lambdaValue > 0)
+                        {
+                            lambda = lambdaValue;
+                        }
+                        else
+                        {
+                            MessageBox.Show("La cantidad de clientes con aparatos a reparar debe ser un valor MAYOR A CERO Y ENTERO");
+                            txtLambda.Text = "7";
+                        }
+                    }
+                    else
+                    {
+                        txtLambda.Text = "7";
+                    }
+                    //Validaciones Tiempo Desde y Tiempo Hasta
+                    if (txt_tiemporep_desde.Text != "" && txt_tiemporep_hasta.Text != "")
+                    {
+                        if (int.Parse(txt_tiemporep_desde.Text) > 0 && int.Parse(txt_tiemporep_hasta.Text) > 0)
+                        {
+                            _tiemporep_desde = int.Parse(txt_tiemporep_desde.Text);
+                            _tiemporep_hasta= int.Parse(txt_tiemporep_hasta.Text);
+                        }
+                        else
+                        {
+                            MessageBox.Show("El tiempo ingresado de reparación debe ser mayor a cero y positivo");
+                            txt_tiemporep_desde.Text = "13";
+                            txt_tiemporep_hasta.Text = "17";
+                        }
+                        if (int.Parse(txt_tiemporep_desde.Text) > int.Parse(txt_tiemporep_hasta.Text))
+                        {
+                            MessageBox.Show("ERROR, el Tiempo de Reparación DESDE debe ser menor que el tiempo HASTA");
+                            txt_tiemporep_desde.Text = "13";
+                            txt_tiemporep_hasta.Text = "17";
+                        }
+                    }
+                    else 
+                    {
+                        txt_tiemporep_desde.Text = "13";
+                        txt_tiemporep_hasta.Text = "17";
+                    }
+                    // Validaciones de Monto Desde y Monto Hasta
+                    if (text_monto_desde.Text != "" && text_monto_hasta.Text != "")
+                    {
+                        if (int.Parse(text_monto_desde.Text) > 0 && int.Parse(text_monto_hasta.Text) > 0)
+                        {
+                            _monto_desde = double.Parse(text_monto_desde.Text);
+                            _monto_hasta = double.Parse(text_monto_hasta.Text);
+                        }
+                        else
+                        {
+                            MessageBox.Show("El valor del monto a cobrar Desde y Hasta deben  ser mayores a cero y positivos");
+                            text_monto_desde.Text = "100";
+                            text_monto_hasta.Text = "400";
+                        }
+                        if (int.Parse(text_monto_desde.Text) > int.Parse(text_monto_hasta.Text))
+                        {
+                            MessageBox.Show("ERROR, el Monto a Cobrar DESDE debe ser menor que el monto HASTA");
+                            text_monto_desde.Text = "100";
+                            text_monto_hasta.Text = "400";
+                        }
+                    }
+                    else
+                    {
+                        text_monto_desde.Text = "100";
+                        text_monto_hasta.Text = "400";
+                    }
+                    // Validación de Rango de Renglones a Mostrar Desde - Hasta
                     if (textDesde.Text == "" || textHasta.Text == "")
                     {
                        desde = 0;
@@ -61,7 +123,7 @@ namespace TallerReparación
                         hasta = int.Parse(textHasta.Text);
                         if (desde >= hasta)
                         {
-                            MessageBox.Show("ERROR, el DESDE debe ser menos que el HASTA");
+                            MessageBox.Show("ERROR, el DESDE debe ser menor que el tiempo HASTA");
                             textDesde.Clear();
                             textHasta.Clear();
                             textDesde.Focus();
@@ -70,23 +132,29 @@ namespace TallerReparación
 
                     }
                     // El valor ingresado es un número (double o int)
-                    Simulacion sim = new Simulacion(tiempo_sim, desde, hasta);
-                    Vector[] vec = sim.ejecutar();
+                    Simulacion sim = new Simulacion(tiempo_sim, desde, hasta, lambda, _tiemporep_desde, _tiemporep_hasta, _monto_desde, _monto_hasta);
+                    List<Vector> vec = sim.ejecutar();
                     dgvClientes.DataSource = sim.obtenerListClientes();
                     
                    
                     //colorear columnas
-                    dgvSimular.DataSource = sim.getDtVector(vec);
+                    dgvSimular.DataSource = sim.getDtLista(vec);
                     dgvSimular.Columns[1].DefaultCellStyle.BackColor = Color.Yellow;
                     dgvSimular.Columns[4].DefaultCellStyle.BackColor = Color.Yellow;
                     dgvSimular.Columns[11].DefaultCellStyle.BackColor = Color.Yellow;
                     dgvSimular.Columns[12].DefaultCellStyle.BackColor = Color.Yellow;
                     dgvSimular.Columns[13].DefaultCellStyle.BackColor = Color.Yellow;
-                    dgvSimular.Columns[16].DefaultCellStyle.BackColor = Color.LightGreen;
-                    dgvSimular.Columns[17].DefaultCellStyle.BackColor = Color.Transparent;
-                    dgvSimular.Columns[18].DefaultCellStyle.BackColor = Color.Transparent;
-                    dgvSimular.Columns[19].DefaultCellStyle.BackColor = Color.Transparent;
-                    dgvSimular.Columns[20].DefaultCellStyle.BackColor = Color.Transparent;
+                    dgvSimular.Columns[16].DefaultCellStyle.BackColor = Color.LightSeaGreen;
+                    dgvSimular.Columns[17].DefaultCellStyle.BackColor = Color.Azure;
+                    dgvSimular.Columns[18].DefaultCellStyle.BackColor = Color.Azure;
+                    dgvSimular.Columns[19].DefaultCellStyle.BackColor = Color.Azure;
+                    dgvSimular.Columns[20].DefaultCellStyle.BackColor = Color.Azure;
+                    dgvSimular.Columns[21].DefaultCellStyle.BackColor = Color.Transparent;
+                    dgvSimular.Columns[22].DefaultCellStyle.BackColor = Color.Transparent;
+                    dgvSimular.Columns[23].DefaultCellStyle.BackColor = Color.Transparent;
+                    dgvSimular.Columns[24].DefaultCellStyle.BackColor = Color.Transparent;
+
+
                     //Mostrar Métricas
                     (beneficio, costoGarantia, costoRepuesto, recaudacion) = sim.obtenerMetricas();
                     textBeneficios.Text = beneficio.ToString();
@@ -100,6 +168,11 @@ namespace TallerReparación
                     txtTiempoSim.Enabled = false;
                     textDesde.Enabled = false;
                     textHasta.Enabled = false;
+                    txtLambda.Enabled =false;
+                    txt_tiemporep_desde.Enabled = false;
+                    txt_tiemporep_hasta.Enabled = false;
+                    text_monto_desde.Enabled = false;
+                    text_monto_hasta.Enabled = false;
                 }
                 else
                 {
@@ -138,9 +211,21 @@ namespace TallerReparación
             textCostoGarantia.Clear();
             textCostoRepuesto.Clear();
             textRecaudacion.Clear();
+            txtLambda.Clear();
+            txt_tiemporep_desde.Clear();
+            txt_tiemporep_hasta.Clear();
+            text_monto_desde.Clear();
+            text_monto_hasta.Clear();
+
             txtTiempoSim.Enabled = true;
             textDesde.Enabled = true;
             textHasta.Enabled = true;
+            txtLambda.Enabled = true;
+            txt_tiemporep_desde.Enabled = true;
+            txt_tiemporep_hasta.Enabled = true;
+            text_monto_desde.Enabled = true;
+            text_monto_hasta.Enabled = true;
+
             if (dgvSimular.DataSource is DataTable dataTable) 
             {
                 dataTable.Rows.Clear();
@@ -156,8 +241,40 @@ namespace TallerReparación
                 dgvSimular.Columns[18].DefaultCellStyle.BackColor = Color.White;
                 dgvSimular.Columns[19].DefaultCellStyle.BackColor = Color.White;
                 dgvSimular.Columns[20].DefaultCellStyle.BackColor = Color.White;
+                dgvSimular.Columns[21].DefaultCellStyle.BackColor = Color.White;
+                dgvSimular.Columns[22].DefaultCellStyle.BackColor = Color.White;
+                dgvSimular.Columns[23].DefaultCellStyle.BackColor = Color.White;
+                dgvSimular.Columns[24].DefaultCellStyle.BackColor = Color.White;
+
             }
             dgvClientes.Columns.Clear();
+
+        }
+        // Colorea la última simulación
+        private void dgvSimular_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            // Obtengo la referencia a la fila actual
+            DataGridViewRow row = dgvSimular.Rows[e.RowIndex];
+            DataRowView dataRowView = (DataRowView)row.DataBoundItem;
+
+            bool esAnteUltimaFila = e.RowIndex == dgvSimular.Rows.Count - 2;
+            bool esUltimaFila = e.RowIndex == dgvSimular.Rows.Count - 1;
+            if (esAnteUltimaFila)
+            {
+                row.DefaultCellStyle.BackColor = Color.LightBlue;
+            }
+            if (esUltimaFila)
+            {
+                row.DefaultCellStyle.BackColor = Color.White;
+            }
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TallerReparación
+﻿namespace TallerReparación
 {
     public class Vector
     {
@@ -25,12 +19,10 @@ namespace TallerReparación
         private double rnd_monto;
         private double monto_cobrar;
         private string esGratuito;
-        //
         private double r_recaudacion; 
         private double r_costo_repuesto; 
         private double r_beneficio; 
         private double r_costo_garantia;
-        //
         private double acum_recaudacion;
         private double costo_repuestos;
         private double beneficios;
@@ -60,12 +52,10 @@ namespace TallerReparación
             this.rnd_monto = rnd_monto;
             this.monto_cobrar = monto_cobrar;
             this.esGratuito = esGratuito;
-            //
             this.r_recaudacion = r_recaudacion;
             this.r_costo_repuesto = r_costo_repuesto;
             this.r_beneficio = r_beneficio; 
             this.r_costo_garantia = r_costo_garantia;
-            //
             this.acum_recaudacion = acum_recaudacion;
             this.costo_repuestos = costo_repuestos;
             this.beneficios = beneficios;
@@ -175,7 +165,5 @@ namespace TallerReparación
         {
             get { return acum_costo_garantia; }
         }
-
-
     }
 }
